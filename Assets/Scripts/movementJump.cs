@@ -17,10 +17,12 @@ public class movementJump : MonoBehaviour
     private float jumpTimeCounter;
     public float jumpTime;
     private bool isJumping;
+    private bool DoubleJump;
 
-    public GameObject bullet;
-    public GameObject bulletLeft;
-    private bool facingRight;
+    public BulletType bulletType;
+    public GameObject fireBullet;
+    public GameObject iceBullet;
+    public bool facingRight;
     Vector2 bulletPos;
     public float fireRate = .5f;
     float nextFire = 0;
@@ -33,6 +35,8 @@ public class movementJump : MonoBehaviour
 
     public int mana = 5;
     public float manaChargeTime = 3000f;
+    public bool fireEnabled;
+    public bool iceEnabled;
 
     public Canvas UI;
 
@@ -43,6 +47,8 @@ public class movementJump : MonoBehaviour
         rb.freezeRotation = true;
         facingRight = true;
         playerDamaged = GetComponent<BoxCollider2D>();
+        fireEnabled = false;
+        iceEnabled = false;
     }
 
     //Will need to be more fine tuned
@@ -79,11 +85,28 @@ public class movementJump : MonoBehaviour
         isGrounded = Physics2D.OverlapCircle(feetPos.position, checkRadius, whatIsGround);
 
         //Initial jump
-        if (isGrounded == true && Input.GetKeyDown(KeyCode.Space))
+        if (isGrounded == true)
         {
-            isJumping = true;
-            jumpTimeCounter = jumpTime;
-            rb.velocity = Vector2.up * jumpForce;
+            DoubleJump = true;
+        }
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            if (isGrounded == true)
+            {
+                isJumping = true;
+                jumpTimeCounter = jumpTime;
+                rb.velocity = Vector2.up * jumpForce;
+            }
+            else
+            {
+                if (DoubleJump && fireEnabled)
+                {
+                    isJumping = true;
+                    jumpTimeCounter = jumpTime;
+                    rb.velocity = Vector2.up * jumpForce;
+                    DoubleJump = false;
+                }
+            }
         }
 
         //Extend jump if the button is held down longer
@@ -101,10 +124,18 @@ public class movementJump : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.Space))
             isJumping = false;
 
-        //Shoot projectile
+        //Shoot projectile **(Add a boolean for when shooting is enabled)**
         if(Input.GetKey(KeyCode.X) && Time.time > nextFire && mana > 0)
         {
             nextFire = Time.time + fireRate;
+
+            if (fireEnabled)
+                bulletType = BulletType.fireBullet;
+            else if (iceEnabled)
+                bulletType = BulletType.iceBullet;
+            else
+                bulletType = BulletType.none;
+
             Fire();
         }
     }
@@ -113,16 +144,23 @@ public class movementJump : MonoBehaviour
    void Fire()
     {
         bulletPos = transform.position;
-
         if(facingRight)
-        {
             bulletPos += new Vector2(+2.5f, .4f);
-            Instantiate(bullet, bulletPos, Quaternion.identity);
-        }
         else
-        {
             bulletPos += new Vector2(-2.5f, .4f);
-            Instantiate(bulletLeft, bulletPos, Quaternion.identity);
+
+        switch(bulletType)
+        {
+            case BulletType.fireBullet:
+                Instantiate(fireBullet, bulletPos, Quaternion.identity);
+                break;
+
+            case BulletType.iceBullet:
+                Instantiate(iceBullet, bulletPos, Quaternion.identity);
+                break;
+
+            case BulletType.none:
+                return;
         }
 
         mana -= 1;
@@ -148,4 +186,11 @@ public class movementJump : MonoBehaviour
         yield return new WaitForSeconds(invincibilityTime);
         invincible = false;
     }
+}
+
+public enum BulletType
+{
+    fireBullet,
+    iceBullet,
+    none
 }
