@@ -40,7 +40,7 @@ public class bulletScript : MonoBehaviour
             for (int i = 0; i < enemiesToCrit.Length; i++)
             {
                 enemiesToCrit[i].GetComponent<Transform>().parent.GetComponent<enemy>().takeDamage(damage * 3);
-
+                enemiesToDamage[i].GetComponent<enemy>().elementEffect(gameObject.GetComponent<bulletScript>().currentBullet);
                 //Makes projectiles stop on contact
                 Destroy(gameObject);
             }

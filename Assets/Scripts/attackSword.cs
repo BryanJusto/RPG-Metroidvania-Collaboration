@@ -27,6 +27,7 @@ public class attackSword : MonoBehaviour
                 //Damages enemies hit by attack, and then regens a portion of the mana
                 for(int i = 0; i < enemiesToDamage.Length; i++)
                 {
+                    //soundManager.playSound(soundManager.Sound.playerAttack);
                     enemiesToDamage[i].GetComponent<enemy>().takeDamage(damage);
                     manaRegen = gameObject.GetComponentInParent<playerControl>().mana = gameObject.GetComponentInParent<playerControl>().mana += damage;
                     gameObject.GetComponentInParent<playerControl>().UI.GetComponent<UIManager>().updateMana((int)manaRegen);

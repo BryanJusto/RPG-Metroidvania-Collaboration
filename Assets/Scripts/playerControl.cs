@@ -38,6 +38,8 @@ public class playerControl : MonoBehaviour
     public bool fireEnabled;
     public bool iceEnabled;
 
+    private float soundTimer = .3f;
+
     public Canvas UI;
 
     // Start is called before the first frame update
@@ -58,6 +60,13 @@ public class playerControl : MonoBehaviour
     private void FixedUpdate()
     {
         moveInput = Input.GetAxisRaw("Horizontal");
+
+        /*if (Time.time > soundTimer && moveInput != 0)
+        {
+            soundManager.playSound(soundManager.Sound.playerMove);
+            soundTimer = Time.time + .5f;
+        }*/
+
         rb.velocity = new Vector2(moveInput * speed, rb.velocity.y);
 
         if (rb.velocity.x < 0)

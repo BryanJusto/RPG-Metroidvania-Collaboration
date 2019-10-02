@@ -26,7 +26,7 @@ public class enemy : MonoBehaviour
             Destroy(gameObject);
 
 
-        rb.velocity = new Vector2(Mathf.Sin(Time.time * speed), 0);
+        //rb.velocity = new Vector2(Mathf.Sin(Time.time * speed), 0);
     }
 
     public void elementEffect(BulletType bulletType)
