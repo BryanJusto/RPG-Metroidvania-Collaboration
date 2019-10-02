@@ -28,8 +28,8 @@ public class attackSword : MonoBehaviour
                 for(int i = 0; i < enemiesToDamage.Length; i++)
                 {
                     enemiesToDamage[i].GetComponent<enemy>().takeDamage(damage);
-                    manaRegen = gameObject.GetComponentInParent<movementJump>().mana = gameObject.GetComponentInParent<movementJump>().mana += damage;
-                    gameObject.GetComponentInParent<movementJump>().UI.GetComponent<UIManager>().updateMana((int)manaRegen);
+                    manaRegen = gameObject.GetComponentInParent<playerControl>().mana = gameObject.GetComponentInParent<playerControl>().mana += damage;
+                    gameObject.GetComponentInParent<playerControl>().UI.GetComponent<UIManager>().updateMana((int)manaRegen);
                 }
 
                 timeBtwAttack = startTimeBtwAttack;

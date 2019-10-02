@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1414096100604490556}
   - component: {fileID: 1713634387863261213}
   - component: {fileID: 6754166448881063919}
+  - component: {fileID: 5082440352256428124}
   m_Layer: 0
   m_Name: iceBullet
   m_TagString: Untagged
@@ -140,3 +141,20 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 2048
   damage: 1
+  currentBullet: 1
+--- !u!111 &5082440352256428124
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3343430325392252842}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 9285e603e4b507e4ca978ef25943ef90, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 9285e603e4b507e4ca978ef25943ef90, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0

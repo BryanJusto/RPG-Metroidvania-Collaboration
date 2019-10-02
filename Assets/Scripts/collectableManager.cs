@@ -6,18 +6,6 @@ public class collectableManager : MonoBehaviour
 {
     public PickupType pickupType;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.gameObject.tag == "Player")
@@ -26,8 +14,8 @@ public class collectableManager : MonoBehaviour
             {
                 case PickupType.fireAbility:
                     Debug.Log("Fire ability aqcuired");
-                    collision.gameObject.GetComponent<movementJump>().fireEnabled = true;
-                    collision.gameObject.GetComponent<movementJump>().iceEnabled = false;
+                    collision.gameObject.GetComponent<playerControl>().fireEnabled = true;
+                    collision.gameObject.GetComponent<playerControl>().iceEnabled = false;
                     Destroy(gameObject);
                     break;
                 case PickupType.upgradePoint:
@@ -36,13 +24,13 @@ public class collectableManager : MonoBehaviour
                     break;
                 case PickupType.iceAbility:
                     Debug.Log("Ice ability aqcuired");
-                    collision.gameObject.GetComponent<movementJump>().iceEnabled = true;
-                    collision.gameObject.GetComponent<movementJump>().fireEnabled = false;
+                    collision.gameObject.GetComponent<playerControl>().iceEnabled = true;
+                    collision.gameObject.GetComponent<playerControl>().fireEnabled = false;
                     Destroy(gameObject);
                     break;
                 case PickupType.healthPickup:
                     Debug.Log("health up");
-                    collision.gameObject.GetComponent<movementJump>().UI.GetComponent<UIManager>().updateHealth(collision.gameObject.GetComponent<movementJump>().health + 1);
+                    collision.gameObject.GetComponent<playerControl>().UI.GetComponent<UIManager>().updateHealth(collision.gameObject.GetComponent<playerControl>().health + 1);
                     Destroy(gameObject);
                     break;
             }

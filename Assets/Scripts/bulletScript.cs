@@ -11,6 +11,7 @@ public class bulletScript : MonoBehaviour
     public LayerMask whatIsEnemy;
     public LayerMask whatIsCrit;
     public int damage;
+    public BulletType currentBullet;
 
     bool facingRight;
 
@@ -18,7 +19,7 @@ public class bulletScript : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        facingRight = GameObject.Find("player").GetComponent<movementJump>().facingRight;
+        facingRight = GameObject.Find("player").GetComponent<playerControl>().facingRight;
     }
 
     // Update is called once per frame
@@ -51,8 +52,10 @@ public class bulletScript : MonoBehaviour
             for (int j = 0; j < enemiesToDamage.Length; j++)
             {
                 enemiesToDamage[j].GetComponent<enemy>().takeDamage(damage);
+                enemiesToDamage[j].GetComponent<enemy>().elementEffect(gameObject.GetComponent<bulletScript>().currentBullet);
                 Destroy(gameObject);
             }
+
         }
 
         Destroy(gameObject, 2f);

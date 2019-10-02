@@ -120,6 +120,27 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &58528624 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7491895137841493335, guid: ff7a88d90eb28c74e94e4e91bbff74ad,
+    type: 3}
+  m_PrefabInstance: {fileID: 1094049201}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &58528630
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 58528624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c89cf3363e3b6844ae54633c66feaa7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 3
+  stoppingDistance: 2
+  height: 4.796948
 --- !u!1001 &162754803
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -445,6 +466,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 449679957}
   m_CullTransparentMesh: 0
+--- !u!1 &516124778 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7491895137841493335, guid: ff7a88d90eb28c74e94e4e91bbff74ad,
+    type: 3}
+  m_PrefabInstance: {fileID: 7491895138554150343}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &516124779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 516124778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c89cf3363e3b6844ae54633c66feaa7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 3
+  stoppingDistance: 3
+  height: -1.36
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1064,6 +1106,27 @@ MonoBehaviour:
   pause: {fileID: 677496197}
   maxHealth: 3
   maxMana: 5
+--- !u!1 &759462993 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7491895137841493335, guid: ff7a88d90eb28c74e94e4e91bbff74ad,
+    type: 3}
+  m_PrefabInstance: {fileID: 1214060879}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &759462999
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 759462993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c89cf3363e3b6844ae54633c66feaa7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 3
+  stoppingDistance: 2
+  height: 4.796948
 --- !u!1 &769161900
 GameObject:
   m_ObjectHideFlags: 0
@@ -1433,6 +1496,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: enemy (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 7491895137841493335, guid: ff7a88d90eb28c74e94e4e91bbff74ad,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7491895137841493333, guid: ff7a88d90eb28c74e94e4e91bbff74ad,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1491,7 +1559,11 @@ PrefabInstance:
     - target: {fileID: 7491895137841493331, guid: ff7a88d90eb28c74e94e4e91bbff74ad,
         type: 3}
       propertyPath: speed
-      value: 0
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1786398869, guid: ff7a88d90eb28c74e94e4e91bbff74ad, type: 3}
+      propertyPath: m_GravityScale
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ff7a88d90eb28c74e94e4e91bbff74ad, type: 3}
@@ -4145,7 +4217,7 @@ PrefabInstance:
     - target: {fileID: 7491895137841493333, guid: ff7a88d90eb28c74e94e4e91bbff74ad,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.21
+      value: -1.36
       objectReference: {fileID: 0}
     - target: {fileID: 7491895137841493333, guid: ff7a88d90eb28c74e94e4e91bbff74ad,
         type: 3}
@@ -4191,6 +4263,23 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7491895137841493331, guid: ff7a88d90eb28c74e94e4e91bbff74ad,
+        type: 3}
+      propertyPath: health
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1786398869, guid: ff7a88d90eb28c74e94e4e91bbff74ad, type: 3}
+      propertyPath: m_GravityScale
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1786398869, guid: ff7a88d90eb28c74e94e4e91bbff74ad, type: 3}
+      propertyPath: m_UseAutoMass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1786398869, guid: ff7a88d90eb28c74e94e4e91bbff74ad, type: 3}
+      propertyPath: m_Mass
+      value: 0.58538586
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ff7a88d90eb28c74e94e4e91bbff74ad, type: 3}

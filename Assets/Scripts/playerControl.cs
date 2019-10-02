@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class movementJump : MonoBehaviour
+public class playerControl : MonoBehaviour
 {
     public float speed;
     public float jumpForce;
@@ -99,7 +99,7 @@ public class movementJump : MonoBehaviour
             }
             else
             {
-                if (DoubleJump && fireEnabled)
+                if (DoubleJump)
                 {
                     isJumping = true;
                     jumpTimeCounter = jumpTime;

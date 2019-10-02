@@ -26,7 +26,7 @@ public class dashAbility : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.Z))
                 {
                     Debug.Log("Working");
-                    rb.AddForce(Vector2.right * 12000);
+                    rb.AddForce(new Vector2(12000, 0));
                     dashState = DashState.Dashing;
                 }
                 break;
