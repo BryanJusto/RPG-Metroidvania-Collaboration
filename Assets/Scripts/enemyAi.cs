@@ -13,7 +13,7 @@ public class enemyAi : MonoBehaviour
 
     // Start is called before the first frame update
     void Start(){
-
+        target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
     }
 
     void Update(){
@@ -31,7 +31,8 @@ public class enemyAi : MonoBehaviour
         {
             Debug.Log("hit");
             if(Vector3.Distance(transform.position,target.position) > 1){
-                transform.Translate(new Vector3(speed * Time.deltaTime, 0, 0));
+                float step = speed * Time.deltaTime;
+                transform.position = Vector2.MoveTowards(transform.position, target.position, step);
             }
         }
 
